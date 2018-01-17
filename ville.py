@@ -2,18 +2,18 @@
 
 import math
 
-class cVille():
-	def __init__(self, latitude, longitude, nom):
+class cVille(): #classe decrivant les != villes du parcours
+	def __init__(self, latitude, longitude, nom): #on recupere la longitude la latitude et le nom
 		self.longitude=longitude
 		self.latitude=latitude
 		self.nom=nom
 
-	def distance(self,ville):
+	def distance(self,ville): #calcul basique de distance avec produit en croix spheriques -> lineaire
 		dX=((self.longitude-ville.longitude)*40000*math.cos(self.latitude+ville.latitude)*math.pi/360)/360
 		dY=((self.latitude-ville.latitude)*40000)/360
 		return math.sqrt(dX**2+dY**2)
 
-	def better_distance(self,ville): #d'apres la formule de haversine
+	def distance_precise(self,ville): #d'apres la formule de haversine
 		rayon =  6378.137 #rayon de la Terre
 		dLatitude = ville.latitude * math.pi / 180 - self.latitude * math.pi / 180
 		dLongitude = ville.longitude * math.pi / 180 - self.longitude * math.pi / 180
@@ -22,11 +22,11 @@ class cVille():
 		distance = rayon * c
 		return distance
 
-	def longitude(self):
+	def longitude(self): #getter
 		return self.longitude
 
-	def latitude(self):
+	def latitude(self): #getter
 		return self.latitude
 
-	def nom(self):
+	def nom(self): #getter
 		return self.nom
