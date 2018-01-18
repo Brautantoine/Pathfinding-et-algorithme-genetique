@@ -6,6 +6,7 @@ Script de test des different objet actuellement implementes
 from ville import cVille #import de l'objet decrivant les villes
 from carte import cCarte #import de l'objet decrivant la liste de toute les villes
 from Algo_gen import cDarwin
+from core import cCore
 from population import cPopulation
 
 """
@@ -23,10 +24,12 @@ Kellog = cVille(62.476744,86.295110,"Kellog")
 """
 Affichage de leur distance par rapport a l'IUT (test calcul distance)
 """
+"""
 print "La distance IUT - orly est de:", str(iut.distance_precise(orly))
 print "La distance IUT - AndrosTown est de:", str(iut.distance_precise(AndrosTown))
 print "La distance IUT - Kingston est de:", str(iut.distance_precise(Kingston))
 print "La distance IUT - Villefranche de Rouerge est de:", str(iut.distance_precise(VillefrancheDeRouerge))
+"""
 
 carte = cCarte() #creation de l'instance qui regroupe toutes les villes
 
@@ -42,16 +45,27 @@ carte.ajouter_ville(Mascat)#ici
 carte.ajouter_ville(Naruto)
 carte.ajouter_ville(Kellog)
 
-print "La carte contient :", carte.recup_liste_noms_villes() #On affiche le contenue de la carte
+#print "La carte contient :", carte.recup_liste_noms_villes() #On affiche le contenue de la carte
 
-echantillon = cPopulation(carte,50)
+echantillon = cPopulation(carte,500)
 echantillon.generer()
 
 print "Meilleur distance initiale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin())
 
 algo = cDarwin(carte)
-
-for i in range(0,1000):
+"""
+core = 0
+num_generations = 0
+while core<15:
+	dernier_meilleur = echantillon.obtenir_meilleur_chemin().distance()
 	echantillon = algo.nouvelle_population(echantillon)
+	if dernier_meilleur == echantillon.obtenir_meilleur_chemin().distance():
+		core += 1
+	else:
+		core = 0
+	num_generations += 1
+"""
+#print "\nMeilleur distance finale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin()) , "\na la generation numero :" , str(num_generations)
 
-print "Meilleur distance initiale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin())
+c = cCore(echantillon,algo)
+c.determiner_minimum_locale()

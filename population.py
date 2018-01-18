@@ -1,3 +1,5 @@
+#!usr/bin/env python
+
 from chemin import cChemin
 
 class cPopulation():

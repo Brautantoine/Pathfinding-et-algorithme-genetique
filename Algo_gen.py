@@ -6,7 +6,7 @@ from chemin import cChemin
 import random
 
 class cDarwin():
-	def __init__(self,carte,tournoi = 4,taux=0.05,mutation=False,elitisme=True):
+	def __init__(self,carte,tournoi = 10,taux=0.05,mutation=False,elitisme=True):
 		self.carte = carte
 		self.mutation_active = mutation
 		self.taux_mutation = taux
