@@ -5,13 +5,15 @@ import random
 class cChemin():
 	def __init__(self, carte): #il melange tout seul les villes qui lui sont donne dans la carte
 		self.carte = carte;
-		self.chemin = list(carte.villes) #copie des villes dans les chemins
+		self.chemin = [None]*carte.nb_villes()		
 	
 	def __len__(self):
 		return len(self.chemin)
 	
 	def melanger(self):
+		self.chemin = list(self.carte.villes) #copie des villes dans les chemins
 		random.shuffle(self.chemin)
+		#print self.chemin
 	
 	def efficacite(self):
 		return 1.0/self.distance()

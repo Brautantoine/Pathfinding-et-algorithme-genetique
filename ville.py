@@ -30,3 +30,6 @@ class cVille(): #classe decrivant les != villes du parcours
 
 	def nom(self): #getter
 		return self.nom
+
+	def __repr__(self):
+		return self.nom

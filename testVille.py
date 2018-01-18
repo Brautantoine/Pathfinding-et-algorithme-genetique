@@ -16,6 +16,9 @@ orly = cVille(48.720572,2.36488014,"Orly")
 AndrosTown = cVille(24.706531,-77.769922,"Andros_Town")
 Kingston = cVille(17.987035,-76.836693,"Kingston")
 VillefrancheDeRouerge = cVille(44.352343,2.037834,"Villefranche_de_Rouerge")
+Mascat = cVille(23.587565,58.412176,"Mascat")
+Naruto = cVille(34.182665,134.550965,"Naruto")
+Kellog = cVille(62.476744,86.295110,"Kellog")
 
 """
 Affichage de leur distance par rapport a l'IUT (test calcul distance)
@@ -35,18 +38,20 @@ carte.ajouter_ville(orly)
 carte.ajouter_ville(AndrosTown)
 carte.ajouter_ville(Kingston)
 carte.ajouter_ville(VillefrancheDeRouerge)
+carte.ajouter_ville(Mascat)#ici
+carte.ajouter_ville(Naruto)
+carte.ajouter_ville(Kellog)
 
 print "La carte contient :", carte.recup_liste_noms_villes() #On affiche le contenue de la carte
 
 echantillon = cPopulation(carte,50)
 echantillon.generer()
 
-print "Meilleur distance initiale :", str(echantillon.obtenir_meilleur_chemin().distance())
+print "Meilleur distance initiale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin())
 
-"""
 algo = cDarwin(carte)
 
-for i in range(0,100):
+for i in range(0,1000):
 	echantillon = algo.nouvelle_population(echantillon)
 
-print "Meilleur distance finale :", str(echantillon.obtenir_meilleur_chemin().distance())"""
+print "Meilleur distance initiale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin())
