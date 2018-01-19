@@ -1,3 +1,5 @@
+#!usr/bin/env python
+
 from ville import cVille
 
 import random

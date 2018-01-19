@@ -1,5 +1,6 @@
 #!usr/bin/env python
 
+import csv
 from ville import cVille
 
 class cCarte(): #contient la liste de toutes les instances cVille du parcours
@@ -17,3 +18,11 @@ class cCarte(): #contient la liste de toutes les instances cVille du parcours
 		for i in range(0,len(self.villes)):
 			temp.append(self.villes[i].nom)
 		return temp
+	
+	def importer_csv(self, filename):
+		with open(filename, 'rb') as csvfile:
+			reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+			for row in reader:
+				ville = cVille(float(row[1]), float(row[2]), str(row[0]).strip())
+				self.ajouter_ville(ville)
+		

@@ -36,6 +36,7 @@ carte = cCarte() #creation de l'instance qui regroupe toutes les villes
 """
 Ajout des villes dans la carte
 """
+"""
 carte.ajouter_ville(iut)
 carte.ajouter_ville(orly)
 carte.ajouter_ville(AndrosTown)
@@ -44,13 +45,14 @@ carte.ajouter_ville(VillefrancheDeRouerge)
 carte.ajouter_ville(Mascat)#ici
 carte.ajouter_ville(Naruto)
 carte.ajouter_ville(Kellog)
-
+"""
+carte.importer_csv("villes_POO_Python.csv")
 #print "La carte contient :", carte.recup_liste_noms_villes() #On affiche le contenue de la carte
 
-echantillon = cPopulation(carte,500)
+echantillon = cPopulation(carte,50)
 echantillon.generer()
 
-print "Meilleur distance initiale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin())
+print "Meilleure distance initiale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin())
 
 algo = cDarwin(carte)
 """
@@ -65,7 +67,7 @@ while core<15:
 		core = 0
 	num_generations += 1
 """
-#print "\nMeilleur distance finale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin()) , "\na la generation numero :" , str(num_generations)
+#print "\nMeilleure distance finale :", str(echantillon.obtenir_meilleur_chemin().distance()) , str(echantillon.obtenir_meilleur_chemin()) , "\na la generation numero :" , str(num_generations)
 
 c = cCore(echantillon,algo)
 c.determiner_minimum_locale()

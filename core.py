@@ -19,4 +19,4 @@ class cCore():
 				self.core = 0
 			self.num_generations += 1
 
-		print "\nMeilleur distance finale :", str(self.echantillon.obtenir_meilleur_chemin().distance()) , str(self.echantillon.obtenir_meilleur_chemin()) , "\na la generation numero :" , str(self.num_generations)
+		print "\nMeilleure distance finale :", str(self.echantillon.obtenir_meilleur_chemin().distance()) , str(self.echantillon.obtenir_meilleur_chemin()) , "\na la generation numero :" , str(self.num_generations)
